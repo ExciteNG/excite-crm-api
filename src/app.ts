@@ -98,11 +98,14 @@ class App {
         },
         servers: [
           {
+            url: 'https://excite-crm-cpc8gcfsdcfggaff.westus3-01.azurewebsites.net/api/v1',
+            description: 'Live server',
+          },
+          {
             url: 'http://localhost:5000/api/v1',
             description: 'Local server',
           },
         ],
-        
       },
       apis: ['./src/routes/**/*.ts'],
     };
