@@ -151,6 +151,30 @@ class LeadRoute implements Routes {
 
     /**
      * @swagger
+     * /leads/add:
+     *   post:
+     *     summary: Add a new lead
+     *     tags: [Lead]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/LeadCreate'
+     *     responses:
+     *       201:
+     *         description: Lead added successfully
+     *       400:
+     *         description: Validation error
+     */
+    this.router.post(
+      `${this.path}`,
+      ValidationMiddleware(createLeadSchema),
+      this.leadController.addLead
+    );
+
+    /**
+     * @swagger
      * /leads:
      *   post:
      *     summary: Create a new lead

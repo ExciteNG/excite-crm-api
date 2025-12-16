@@ -33,6 +33,19 @@ class LeadController {
     }
   };
 
+  public addLead = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const leadData = req.body;
+      const newLead = await this.leadService.createLead(leadData);
+
+      res
+        .status(201)
+        .json({ data: newLead, message: 'Lead added successfully' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public createLead = async (
     req: Request,
     res: Response,
