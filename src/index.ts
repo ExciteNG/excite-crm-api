@@ -7,6 +7,7 @@ import AuthRoute from '@routes/auth.route';
 import IndexRoute from '@routes/index.route';
 import validateEnv from '@utils/validateEnv';
 import UserRoute from './routes/user.route';
+import LeadRoute from './routes/lead.route';
 
 import { PORT, NODE_ENV } from './config';
 import { logger } from './utils/logger';
@@ -18,6 +19,7 @@ const app = new App([
   new IndexRoute(),
   new AuthRoute(),
   new UserRoute(),
+  new LeadRoute(),
   new NewsletterRoute(),
 ]);
 
