@@ -49,8 +49,20 @@ class AuthService {
     user.confirmationCode = this.createToken(user).token;
     await user.save();
 
+    // this.emailService
+    //   .sendEmail({
+    //     to: user.email,
+    //     subject: 'Verify email address',
+    //     // body: `Click on confirmation link: ${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
+    //     body: emailVerificationTemplate({
+    //       fullname: user.name.fullname,
+    //       email: user.email,
+    //       verificationLink: `${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
+    //       baseUrl: CLIENT_URL,
+    //     }),
+    //   })
     this.emailService
-      .sendEmail({
+      .sendUserEmail({
         to: user.email,
         subject: 'Verify email address',
         // body: `Click on confirmation link: ${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
@@ -84,8 +96,19 @@ class AuthService {
     findUser.confirmationCode = undefined;
     const verifiedUser = await findUser.save();
 
+    // this.emailService
+    //   .sendEmail({
+    //     to: findUser.email,
+    //     subject: 'Welcome Aboard!',
+    //     body: welcomeOnboardingTemplate({
+    //       fullname: findUser.name.fullname,
+    //       dashboardLink: `${CLIENT_URL}/dashboard`,
+    //       tutorialLink: `${CLIENT_URL}/tutorials`,
+    //       supportLink: `${CLIENT_URL}/support`,
+    //     }),
+    //   })
     this.emailService
-      .sendEmail({
+      .sendUserEmail({
         to: findUser.email,
         subject: 'Welcome Aboard!',
         body: welcomeOnboardingTemplate({
@@ -111,8 +134,14 @@ class AuthService {
     user.confirmationCode = this.createToken(user).token;
     await user.save();
 
+    // this.emailService
+    //   .sendEmail({
+    //     to: user.email,
+    //     subject: 'Verify email address',
+    //     body: `Click on confirmation link: ${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
+    //   })
     this.emailService
-      .sendEmail({
+      .sendUserEmail({
         to: user.email,
         subject: 'Verify email address',
         body: `Click on confirmation link: ${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
@@ -149,8 +178,19 @@ class AuthService {
       findManager.confirmationCode = this.createToken(findManager).token;
       const user = await findManager.save();
 
+      // this.emailService
+      //   .sendEmail({
+      //     to: user.email,
+      //     subject: 'Verify email address',
+      //     body: emailVerificationTemplate({
+      //       fullname: user.name.fullname,
+      //       email: user.email,
+      //       verificationLink: `${CLIENT_URL}/auth/verify-email/verify/${user.confirmationCode}`,
+      //       baseUrl: CLIENT_URL,
+      //     }),
+      //   })
       this.emailService
-        .sendEmail({
+        .sendUserEmail({
           to: user.email,
           subject: 'Verify email address',
           body: emailVerificationTemplate({

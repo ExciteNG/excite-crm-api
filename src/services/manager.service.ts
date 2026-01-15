@@ -26,6 +26,14 @@ class ManagerService {
 
     return manager;
   }
+
+  public async getManagers() {
+    const managers = await this.managers.find().exec();
+    // .select('-password -confirmationCode');
+    console.log(managers);
+
+    return managers;
+  }
 }
 
 export default ManagerService;

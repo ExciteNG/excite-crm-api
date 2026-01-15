@@ -12,6 +12,7 @@ import LeadRoute from './routes/lead.route';
 import { PORT, NODE_ENV } from './config';
 import { logger } from './utils/logger';
 import NewsletterRoute from './routes/newsletter.route';
+import ManagerRoute from './routes/manager.route';
 
 validateEnv();
 
@@ -21,6 +22,7 @@ const app = new App([
   new UserRoute(),
   new LeadRoute(),
   new NewsletterRoute(),
+  new ManagerRoute(),
 ]);
 
 const server = http.createServer(app.app);
