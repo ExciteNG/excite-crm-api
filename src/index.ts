@@ -7,10 +7,10 @@ import AuthRoute from '@routes/auth.route';
 import IndexRoute from '@routes/index.route';
 import validateEnv from '@utils/validateEnv';
 import UserRoute from './routes/user.route';
-
 import { PORT, NODE_ENV } from './config';
 import { logger } from './utils/logger';
 import NewsletterRoute from './routes/newsletter.route';
+import ManagerRoute from './routes/manager.route';
 
 validateEnv();
 
@@ -19,6 +19,7 @@ const app = new App([
   new AuthRoute(),
   new UserRoute(),
   new NewsletterRoute(),
+  new ManagerRoute(),
 ]);
 
 const server = http.createServer(app.app);
